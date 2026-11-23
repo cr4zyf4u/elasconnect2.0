@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="pt-BR" class="sem-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MEI PREDICT · Simulador de cenários · Elas Connect</title>
+  <meta name="description" content="Simule um mês otimista, provável e pessimista para o seu negócio e veja qual ação faria mais diferença no lucro. Uma simulação com regras simples e visíveis.">
+  <meta name="theme-color" content="#c8102e">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <header class="topo">
+    <div class="topo__inner">
+      <a class="marca" href="index.html" aria-label="Elas Connect, página inicial">
+        <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="11" fill="#c8102e"/><path d="M9 15.5 20 10l11 5.5v11L20 32 9 26.5z" fill="#ffb27a" stroke="#2b0f1c" stroke-width="2" stroke-linejoin="round"/><path d="M9 15.5 20 21l11-5.5M20 21v11" fill="none" stroke="#2b0f1c" stroke-width="2" stroke-linejoin="round"/><circle cx="31" cy="9" r="4" fill="#c6f432" stroke="#2b0f1c" stroke-width="1.5"/></svg>
+        <span>Elas<strong>Connect</strong></span>
+      </a>
+      <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="menu-botao__icone" aria-hidden="true"></span> Menu
+      </button>
+      <nav id="menu-principal" class="menu" aria-label="Menu principal">
+        <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="duvidas.html">Dúvidas</a></li>
+        <li><a href="calculadora.html">Calculadora</a></li>
+        <li><a href="simulador.html" class="menu__destaque" aria-current="page">MEI PREDICT</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <header class="cabecalho-pagina">
+      <div class="envoltorio">
+        <span class="sobretitulo">Simulador de cenários</span>
+        <h1><span class="marca-predict">MEI PREDICT</span> e se o mês for diferente?</h1>
+        <p class="texto-grande">Coloque os números do seu negócio e compare três meses possíveis lado a lado: um bom, um normal e um difícil. No fim, veja qual mudança faria mais diferença no seu lucro.</p>
+        <div class="aviso aviso--forte" role="note">
+          <span class="aviso__icone" aria-hidden="true">🧪</span>
+          <div>
+            <p><strong>Isto é uma simulação, não uma previsão.</strong> Os resultados mostram o que aconteceria <em>se</em> as regras simples descritas nesta página fossem verdade. Eles não garantem nenhum resultado futuro e não são conselho financeiro.</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="envoltorio">
+      <form id="form-simulador" class="etiqueta" novalidate aria-labelledby="titulo-dados">
+        <div class="etiqueta__codigo"><span>Seus números do mês</span><span class="codigo-barras" aria-hidden="true"></span></div>
+        <h2 id="titulo-dados" class="visualmente-oculto">Seus números do mês</h2>
+        <p class="ajuda">Já deixamos valores de exemplo preenchidos. Troque pelos seus: o resultado muda na hora.</p>
+
+        <div class="grade-campos mt-2">
+          <div class="campo">
+            <label for="faturamento">Faturamento mensal</label>
+            <p class="ajuda" id="ajuda-faturamento">Quanto entra de vendas em um mês comum.</p>
+            <div class="campo__entrada"><span class="campo__prefixo">R$</span><input type="text" inputmode="decimal" id="faturamento" value="6.000" autocomplete="off" aria-describedby="ajuda-faturamento erro-faturamento"></div>
+            <p class="campo__erro" id="erro-faturamento" aria-live="polite"></p>
+          </div>
+          <div class="campo">
+            <label for="preco">Preço médio de venda</label>
+            <p class="ajuda" id="ajuda-preco">Quanto você cobra, em média, por um produto.</p>
+            <div class="campo__entrada"><span class="campo__prefixo">R$</span><input type="text" inputmode="decimal" id="preco" value="50" autocomplete="off" aria-describedby="ajuda-preco erro-preco"></div>
+            <p class="campo__erro" id="erro-preco" aria-live="polite"></p>
+          </div>
+          <div class="campo">
+            <label for="custo">Custo médio por produto</label>
+            <p class="ajuda" id="ajuda-custo">Quanto você paga ao fornecedor por unidade.</p>
+            <div class="campo__entrada"><span class="campo__prefixo">R$</span><input type="text" inputmode="decimal" id="custo" value="25" autocomplete="off" aria-describedby="ajuda-custo erro-custo"></div>
+            <p class="campo__erro" id="erro-custo" aria-live="polite"></p>
+          </div>
+          <div class="campo">
+            <label for="frete">Custo de frete ou entrega</label>
+            <p class="ajuda" id="ajuda-frete">Quanto você gasta, em média, para entregar cada venda.</p>
+            <div class="campo__entrada"><span class="campo__prefixo">R$</span><input type="text" inputmode="decimal" id="frete" value="6" autocomplete="off" aria-describedby="ajuda-frete erro-frete"><span class="campo__sufixo">por venda</span></div>
+            <p class="campo__erro" id="erro-frete" aria-live="polite"></p>
+          </div>
+          <div class="campo">
+            <label for="fixos">Custos fixos do mês</label>
+            <p class="ajuda" id="ajuda-fixos">Gastos que não mudam com as vendas: DAS do MEI, internet, aluguel. Use 0 se não tiver.</p>
+            <div class="campo__entrada"><span class="campo__prefixo">R$</span><input type="text" inputmode="decimal" id="fixos" value="150" autocomplete="off" aria-describedby="ajuda-fixos erro-fixos"></div>
+            <p class="campo__erro" id="erro-fixos" aria-live="polite"></p>
+          </div>
+          <div class="campo">
+            <label for="prazo">Prazo do fornecedor</label>
+            <p class="ajuda" id="ajuda-prazo">Dias entre pedir e receber a mercadoria.</p>
+            <div class="campo__entrada"><input type="text" inputmode="decimal" id="prazo" value="10" autocomplete="off" aria-describedby="ajuda-prazo erro-prazo"><span class="campo__sufixo">dias</span></div>
+            <p class="campo__erro" id="erro-prazo" aria-live="polite"></p>
+          </div>
+          <div class="campo">
+            <label for="variacao">Variação esperada de demanda</label>
+            <p class="ajuda" id="ajuda-variacao">Quanto suas vendas podem subir ou cair em um mês fora do comum.</p>
+            <div class="campo__entrada"><input type="text" inputmode="decimal" id="variacao" value="20" autocomplete="off" aria-describedby="ajuda-variacao erro-variacao"><span class="campo__sufixo">% para mais ou menos</span></div>
+            <p class="campo__erro" id="erro-variacao" aria-live="polite"></p>
+          </div>
+          <div class="campo">
+            <label for="seguranca">Estoque de segurança atual</label>
+            <p class="ajuda" id="ajuda-seguranca">Quantos dias de venda você guarda de reserva. Use 0 se não guarda.</p>
+            <div class="campo__entrada"><input type="text" inputmode="decimal" id="seguranca" value="2" autocomplete="off" aria-describedby="ajuda-seguranca erro-seguranca"><span class="campo__sufixo">dias de venda</span></div>
+            <p class="campo__erro" id="erro-seguranca" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="grupo-botoes mt-2">
+          <button class="botao" type="submit">Simular cenários</button>
+          <button class="botao botao--claro" type="button" id="restaurar-exemplo">Voltar ao exemplo</button>
+        </div>
+      </form>
+    </div>
+
+    <section class="secao" aria-labelledby="titulo-resultado">
+      <div class="envoltorio">
+        <div class="secao__topo">
+          <span class="sobretitulo">Resultado da simulação</span>
+          <h2 id="titulo-resultado" tabindex="-1">Três meses possíveis, lado a lado</h2>
+        </div>
+
+        <p id="resultado-vazio" class="mensagem-vazia" hidden>Preencha todos os campos com números válidos para ver a simulação.</p>
+
+        <div id="area-resultado" aria-live="polite">
+          <div class="aviso" id="alerta-margem" role="alert" hidden>
+            <span class="aviso__icone" aria-hidden="true">🚩</span>
+            <p></p>
+          </div>
+
+          <div id="cenarios" class="cenarios mt-2"></div>
+
+          <p class="mt-2">Lucro médio ponderado dos três cenários: <strong id="lucro-medio">R$ 0,00</strong> <small>(o provável vale 50%, o otimista e o pessimista valem 25% cada)</small></p>
+
+          <div class="destaque-acao mt-2" aria-labelledby="titulo-acao" role="region">
+            <span class="selo selo--rosa">⭐ O que faria mais diferença</span>
+            <h2 id="titulo-acao" class="mt-2 visualmente-oculto">Ação que faria mais diferença</h2>
+            <p class="destaque-acao__principal mt-2" id="acao-titulo"></p>
+            <p id="acao-detalhe" class="mb-0"></p>
+            <h3 class="mt-2">Todas as ações testadas, da que mais ajuda para a que menos ajuda</h3>
+            <ol class="ranking" id="ranking"></ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao--tinta" aria-labelledby="titulo-regras">
+      <div class="envoltorio--estreito">
+        <span class="sobretitulo">Regras do simulador</span>
+        <h2 id="titulo-regras">Todas as contas, às claras</h2>
+        <p class="texto-grande">O simulador usa só as regras abaixo. Nada fica escondido.</p>
+        <ol class="regras" style="color: var(--tinta)">
+          <li><strong>Vendas do mês</strong>Unidades vendidas hoje = faturamento mensal ÷ preço médio de venda. Vendas por dia = esse número ÷ 30.</li>
+          <li><strong>Cenário provável</strong>A procura fica igual à de hoje e o fornecedor entrega no prazo. Nenhuma venda é perdida.</li>
+          <li><strong>Cenário otimista</strong>A procura sobe pela variação informada (ex.: +20%). Durante a espera pelo fornecedor, essa procura extra gasta a sua reserva. Se a reserva não for suficiente, as vendas que passarem dela são perdidas. Conta: vendas perdidas = vendas por dia × (variação × prazo − dias de reserva), quando o resultado for positivo.</li>
+          <li><strong>Cenário pessimista</strong>A procura cai pela variação informada (ex.: −20%) e o fornecedor atrasa metade do prazo combinado (ex.: prazo de 10 dias vira 15). Se a reserva não cobrir o atraso, faltam produtos nesses dias. Conta: vendas perdidas = vendas por dia no cenário × (atraso − dias de reserva), quando o resultado for positivo.</li>
+          <li><strong>Lucro de cada cenário</strong>Lucro = vendas realizadas × (preço − custo do produto − frete) − custo de guardar estoque − custos fixos.</li>
+          <li><strong>Custo de guardar estoque</strong>Ter produto parado também custa: espaço, perdas e dinheiro que poderia estar em outro lugar. O simulador considera 2% do valor da reserva por mês. Valor da reserva = dias de reserva × vendas por dia × custo do produto.</li>
+          <li><strong>Ação que faz mais diferença</strong>O simulador testa quatro mudanças, uma de cada vez: prazo do fornecedor 30% menor, mais 3 dias de reserva, frete 10% mais barato e produto 5% mais barato. Para cada uma, recalcula os três cenários e compara o lucro médio ponderado (provável 50%, otimista 25%, pessimista 25%) com o atual. A que mais aumenta o lucro aparece em destaque.</li>
+        </ol>
+        <div class="aviso aviso--forte mt-2" role="note" style="color: var(--tinta)">
+          <span class="aviso__icone" aria-hidden="true">🧪</span>
+          <p><strong>Lembrete importante</strong>Estas regras simplificam muito a realidade. Impostos além do DAS, sazonalidade, prazos de pagamento e muitos outros fatores ficam de fora. Use a simulação para comparar caminhos e conversar sobre o seu negócio, nunca como garantia de resultado ou conselho financeiro.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="envoltorio">
+      <div class="rodape__grade">
+        <div>
+          <a class="marca" href="index.html" aria-label="Elas Connect, página inicial"><svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="11" fill="#c8102e"/><path d="M9 15.5 20 10l11 5.5v11L20 32 9 26.5z" fill="#ffb27a" stroke="#2b0f1c" stroke-width="2" stroke-linejoin="round"/><path d="M9 15.5 20 21l11-5.5M20 21v11" fill="none" stroke="#2b0f1c" stroke-width="2" stroke-linejoin="round"/><circle cx="31" cy="9" r="4" fill="#c6f432" stroke="#2b0f1c" stroke-width="1.5"/></svg><span>Elas<strong>Connect</strong></span></a>
+          <p>Informação prática e ferramentas simples para mulheres MEI que trabalham com logística.</p>
+          <p class="mb-0">Projeto de TCC do Curso Técnico em Logística.</p>
+        </div>
+        <div>
+          <h2>Ferramentas</h2>
+          <ul>
+            <li><a href="calculadora.html">Calculadora de estoque</a></li>
+            <li><a href="simulador.html">Simulador MEI PREDICT</a></li>
+            <li><a href="duvidas.html">Dúvidas frequentes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Projeto</h2>
+          <ul>
+            <li><a href="sobre.html">Quem somos</a></li>
+            <li><a href="sobre.html#contato">Contato</a></li>
+            <li><a href="comunidade.html">Comunidade (em breve)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="rodape__base">
+        <p class="rodape__privacidade mb-0"><span aria-hidden="true">🔒</span><span>Este site não pede cadastro e não guarda seus dados. As contas da calculadora e do simulador são feitas no seu próprio aparelho.</span></p>
+        <p class="mb-0 mt-2">© <span data-ano>2026</span> Elas Connect · Os resultados das ferramentas são estimativas e não substituem a orientação de um profissional.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/site.js"></script>
+  <script src="js/simulador.js"></script>
+</body>
+</html>

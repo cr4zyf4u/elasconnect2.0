@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="pt-BR" class="sem-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elas Connect · Logística descomplicada para mulheres MEI</title>
+  <meta name="description" content="Informação prática e ferramentas simples para mulheres MEI que trabalham com logística: dúvidas frequentes, calculadora de estoque e simulador de cenários.">
+  <meta name="theme-color" content="#c8102e">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <header class="topo">
+    <div class="topo__inner">
+      <a class="marca" href="index.html" aria-label="Elas Connect, página inicial">
+        <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="11" fill="#c8102e"/><path d="M9 15.5 20 10l11 5.5v11L20 32 9 26.5z" fill="#ffb27a" stroke="#2b0f1c" stroke-width="2" stroke-linejoin="round"/><path d="M9 15.5 20 21l11-5.5M20 21v11" fill="none" stroke="#2b0f1c" stroke-width="2" stroke-linejoin="round"/><circle cx="31" cy="9" r="4" fill="#c6f432" stroke="#2b0f1c" stroke-width="1.5"/></svg>
+        <span>Elas<strong>Connect</strong></span>
+      </a>
+      <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="menu-botao__icone" aria-hidden="true"></span> Menu
+      </button>
+      <nav id="menu-principal" class="menu" aria-label="Menu principal">
+        <ul>
+        <li><a href="index.html" aria-current="page">Início</a></li>
+        <li><a href="duvidas.html">Dúvidas</a></li>
+        <li><a href="calculadora.html">Calculadora</a></li>
+        <li><a href="simulador.html" class="menu__destaque">MEI PREDICT</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="heroi" aria-labelledby="titulo-heroi">
+      <div class="envoltorio heroi__grade">
+        <div>
+          <span class="selo">👩🏽‍💼 Para mulheres MEI</span>
+          <h1 id="titulo-heroi" class="mt-2">Logística <em>sem mistério</em> para quem toca o próprio negócio.</h1>
+          <p class="texto-grande">Estoque, custos e entregas explicados com contas simples. Aqui você descobre quando repor um produto, quanto guardar de reserva e o que muda no seu lucro se algo sair do planejado.</p>
+          <div class="grupo-botoes">
+            <a class="botao" href="calculadora.html">📦 Calcular meu estoque</a>
+            <a class="botao botao--lima" href="simulador.html">📊 Simular cenários</a>
+          </div>
+        </div>
+
+        <div class="heroi__ilustracao">
+          <svg viewBox="0 0 440 400" role="img" aria-labelledby="ilustracao-titulo">
+            <title id="ilustracao-titulo">Ilustração de caixas empilhadas com uma rota tracejada até um ponto de entrega</title>
+            <circle cx="235" cy="200" r="170" fill="#ffe1ea"/>
+            <circle cx="235" cy="200" r="120" fill="none" stroke="#e0457b" stroke-width="2" stroke-dasharray="4 10"/>
+            <!-- rota -->
+            <path d="M30 360 C 110 330, 90 250, 170 240 S 300 230, 330 150 S 380 60, 400 50" fill="none" stroke="#2b0f1c" stroke-width="4" stroke-dasharray="12 10" stroke-linecap="round"/>
+            <!-- caixas -->
+            <g stroke="#2b0f1c" stroke-width="4" stroke-linejoin="round">
+              <rect x="120" y="250" width="120" height="100" rx="8" fill="#f26b1d"/>
+              <rect x="166" y="250" width="28" height="40" fill="#fff0e4"/>
+              <rect x="240" y="270" width="96" height="80" rx="8" fill="#ffb27a"/>
+              <rect x="276" y="270" width="24" height="32" fill="#fff0e4"/>
+              <rect x="160" y="170" width="100" height="80" rx="8" fill="#e8384f"/>
+              <rect x="196" y="170" width="28" height="34" fill="#ffe1ea"/>
+            </g>
+            <!-- etiqueta na caixa -->
+            <g>
+              <rect x="134" y="306" width="54" height="30" rx="4" fill="#fff" stroke="#2b0f1c" stroke-width="3"/>
+              <path d="M142 314v14M147 314v14M150 314v14M155 314v14M160 314v14M163 314v14M168 314v14M173 314v14M178 314v14" stroke="#2b0f1c" stroke-width="2"/>
+            </g>
+            <!-- chão -->
+            <path d="M90 352 H 370" stroke="#2b0f1c" stroke-width="4" stroke-linecap="round"/>
+            <!-- pino de destino -->
+            <g transform="translate(372 6)">
+              <path d="M28 0C12.5 0 0 12.3 0 27.4 0 48 28 74 28 74S56 48 56 27.4C56 12.3 43.5 0 28 0Z" fill="#c6f432" stroke="#2b0f1c" stroke-width="4"/>
+              <circle cx="28" cy="27" r="9" fill="#2b0f1c"/>
+            </g>
+            <!-- brilhos -->
+            <g fill="#c8102e">
+              <path d="M84 110l6 14 14 6-14 6-6 14-6-14-14-6 14-6z"/>
+              <path d="M330 300l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="#5c0f2b"/>
+            </g>
+          </svg>
+          <p class="heroi__nota" aria-hidden="true"><strong>Ponto de pedido</strong>Saber a hora certa de repor evita produto parado e venda perdida.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="faixa-rota" aria-hidden="true">
+      <span>Estoque</span><span>Reposição</span><span>Fornecedor</span><span>Frete</span><span>Lucro</span>
+    </div>
+
+    <section class="secao" aria-labelledby="titulo-encontra">
+      <div class="envoltorio">
+        <div class="secao__topo">
+          <span class="sobretitulo">O que você encontra aqui</span>
+          <h2 id="titulo-encontra">Ferramentas pequenas para decisões do dia a dia</h2>
+          <p class="texto-grande">Nada de curso longo. Cada página resolve uma dúvida prática, com exemplos de números simples.</p>
+        </div>
+
+        <div class="grade grade--4">
+          <article class="etiqueta">
+            <div class="etiqueta__codigo"><span>ETQ · 01</span><span class="codigo-barras" aria-hidden="true"></span></div>
+            <span class="icone-bloco fundo-rosa" aria-hidden="true">💬</span>
+            <h3>Dúvidas frequentes</h3>
+            <p>Estoque mínimo, estoque de segurança, ponto de pedido e tempo de reposição em respostas curtas.</p>
+            <a href="duvidas.html">Ler as dúvidas <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="etiqueta">
+            <div class="etiqueta__codigo"><span>ETQ · 02</span><span class="codigo-barras" aria-hidden="true"></span></div>
+            <span class="icone-bloco fundo-laranja" aria-hidden="true">📦</span>
+            <h3>Calculadora de estoque</h3>
+            <p>Informe quanto vende e quanto o fornecedor demora. Descubra quando fazer o próximo pedido.</p>
+            <a href="calculadora.html">Usar a calculadora <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="etiqueta">
+            <div class="etiqueta__codigo"><span>ETQ · 03</span><span class="codigo-barras" aria-hidden="true"></span></div>
+            <span class="icone-bloco fundo-lima" aria-hidden="true">📊</span>
+            <h3>Simulador MEI PREDICT</h3>
+            <p>Veja lado a lado um mês bom, um normal e um difícil, e qual ação pesa mais no seu lucro.</p>
+            <a href="simulador.html">Abrir o simulador <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="etiqueta">
+            <div class="etiqueta__codigo"><span>ETQ · 04</span><span class="codigo-barras" aria-hidden="true"></span></div>
+            <span class="icone-bloco fundo-vermelho" aria-hidden="true">🤝</span>
+            <h3>Comunidade <small>(em breve)</small></h3>
+            <p>Um espaço para trocar dúvidas e dicas com outras empreendedoras da logística.</p>
+            <a href="comunidade.html">Saber mais <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao--tinta" aria-labelledby="titulo-por-que">
+      <div class="envoltorio grade grade--2" style="align-items:center">
+        <div>
+          <span class="sobretitulo">Por que este projeto existe</span>
+          <h2 id="titulo-por-que">A logística ainda é vista como “coisa de homem”. A gente discorda.</h2>
+          <p class="texto-grande">Muitas mulheres vendem, entregam e organizam estoques todos os dias, quase sempre sem formação técnica na área. Como MEI (microempreendedora individual), elas já deram o passo da formalização. Faltava informação clara, no tamanho certo, para o próximo passo.</p>
+          <a class="botao botao--lima" href="sobre.html">Conheça o projeto</a>
+        </div>
+        <ol class="passos">
+          <li>
+            <h3>Entenda o termo</h3>
+            <p class="mb-0">Leia a resposta curta e veja um exemplo com números do dia a dia.</p>
+          </li>
+          <li>
+            <h3>Coloque seus números</h3>
+            <p class="mb-0">Use a calculadora ou o simulador com os dados do seu negócio. Nada é enviado nem guardado.</p>
+          </li>
+          <li>
+            <h3>Decida com mais segurança</h3>
+            <p class="mb-0">Saiba quando repor, quanto guardar de reserva e onde mexer primeiro para melhorar o lucro.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-chamada">
+      <div class="envoltorio">
+        <div class="chamada-final">
+          <div>
+            <h2 id="titulo-chamada">Quanto produto você precisa ter antes de pedir de novo?</h2>
+            <p class="mb-0">Leva menos de dois minutos. Você só precisa saber quanto vende por dia e quanto tempo o fornecedor demora para entregar.</p>
+          </div>
+          <div class="grupo-botoes">
+            <a class="botao botao--claro" href="calculadora.html">Fazer a conta agora</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="envoltorio">
+      <div class="rodape__grade">
+        <div>
+          <a class="marca" href="index.html" aria-label="Elas Connect, página inicial"><svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="11" fill="#c8102e"/><path d="M9 15.5 20 10l11 5.5v11L20 32 9 26.5z" fill="#ffb27a" stroke="#2b0f1c" stroke-width="2" stroke-linejoin="round"/><path d="M9 15.5 20 21l11-5.5M20 21v11" fill="none" stroke="#2b0f1c" stroke-width="2" stroke-linejoin="round"/><circle cx="31" cy="9" r="4" fill="#c6f432" stroke="#2b0f1c" stroke-width="1.5"/></svg><span>Elas<strong>Connect</strong></span></a>
+          <p>Informação prática e ferramentas simples para mulheres MEI que trabalham com logística.</p>
+          <p class="mb-0">Projeto de TCC do Curso Técnico em Logística.</p>
+        </div>
+        <div>
+          <h2>Ferramentas</h2>
+          <ul>
+            <li><a href="calculadora.html">Calculadora de estoque</a></li>
+            <li><a href="simulador.html">Simulador MEI PREDICT</a></li>
+            <li><a href="duvidas.html">Dúvidas frequentes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Projeto</h2>
+          <ul>
+            <li><a href="sobre.html">Quem somos</a></li>
+            <li><a href="sobre.html#contato">Contato</a></li>
+            <li><a href="comunidade.html">Comunidade (em breve)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="rodape__base">
+        <p class="rodape__privacidade mb-0"><span aria-hidden="true">🔒</span><span>Este site não pede cadastro e não guarda seus dados. As contas da calculadora e do simulador são feitas no seu próprio aparelho.</span></p>
+        <p class="mb-0 mt-2">© <span data-ano>2026</span> Elas Connect · Os resultados das ferramentas são estimativas e não substituem a orientação de um profissional.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/site.js"></script>
+</body>
+</html>
