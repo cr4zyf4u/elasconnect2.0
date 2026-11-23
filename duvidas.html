@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR" class="sem-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dúvidas frequentes de logística · Elas Connect</title>
+  <meta name="description" content="Respostas curtas, com exemplos de números simples, sobre estoque mínimo, estoque de segurança, ponto de pedido e tempo de reposição.">
+  <meta name="theme-color" content="#c8102e">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <header class="topo">
+    <div class="topo__inner">
+      <a class="marca" href="index.html" aria-label="Elas Connect, página inicial">
+        <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="11" fill="#c8102e"/><path d="M9 15.5 20 10l11 5.5v11L20 32 9 26.5z" fill="#ffb27a" stroke="#2b0f1c" stroke-width="2" stroke-linejoin="round"/><path d="M9 15.5 20 21l11-5.5M20 21v11" fill="none" stroke="#2b0f1c" stroke-width="2" stroke-linejoin="round"/><circle cx="31" cy="9" r="4" fill="#c6f432" stroke="#2b0f1c" stroke-width="1.5"/></svg>
+        <span>Elas<strong>Connect</strong></span>
+      </a>
+      <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="menu-botao__icone" aria-hidden="true"></span> Menu
+      </button>
+      <nav id="menu-principal" class="menu" aria-label="Menu principal">
+        <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="duvidas.html" aria-current="page">Dúvidas</a></li>
+        <li><a href="calculadora.html">Calculadora</a></li>
+        <li><a href="simulador.html" class="menu__destaque">MEI PREDICT</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <header class="cabecalho-pagina">
+      <div class="envoltorio--estreito">
+        <span class="sobretitulo">Dúvidas frequentes</span>
+        <h1>Logística em <span class="marca-texto">respostas curtas</span></h1>
+        <p class="texto-grande">Toque em uma pergunta para abrir a resposta. Cada uma traz um exemplo com números simples e, quando faz sentido, um atalho para fazer a conta com os seus dados.</p>
+      </div>
+    </header>
+
+    <div class="envoltorio--estreito">
+      <details class="duvida" open>
+        <summary><span class="duvida__numero" aria-hidden="true">01</span><h2>O que é estoque mínimo e por que ele importa?</h2><span class="duvida__seta" aria-hidden="true">+</span></summary>
+        <div class="duvida__corpo">
+          <p><strong>Estoque mínimo</strong> é a menor quantidade de um produto que você deve ter guardada para não ficar sem nada para vender enquanto espera a próxima entrega do fornecedor.</p>
+          <p>Ele importa porque produto em falta é venda perdida (e cliente que pode procurar outra loja). Já estoque demais é dinheiro parado na prateleira. O estoque mínimo ajuda a encontrar o meio-termo.</p>
+          <div class="exemplo">
+            <span class="exemplo__titulo">📦 Exemplo</span>
+            Você vende 5 potes de doce por dia, e o fornecedor leva 4 dias para entregar. Durante a espera, você vai vender cerca de <span class="conta">5 × 4 = 20</span> potes. Então, ter menos de 20 potes no estoque já é sinal de risco.
+          </div>
+          <p class="mb-0">Na prática, o estoque mínimo costuma ser o seu <a href="#seguranca">estoque de segurança</a>, e o momento de pedir é o <a href="#ponto-pedido">ponto de pedido</a>.</p>
+        </div>
+      </details>
+
+      <details class="duvida" id="seguranca">
+        <summary><span class="duvida__numero" aria-hidden="true">02</span><h2>O que é estoque de segurança?</h2><span class="duvida__seta" aria-hidden="true">+</span></summary>
+        <div class="duvida__corpo">
+          <p><strong>Estoque de segurança</strong> é uma reserva extra, guardada para os dias em que você vende mais do que o normal ou o fornecedor atrasa.</p>
+          <p>Ninguém vende exatamente a mesma quantidade todo dia. Essa reserva cobre a diferença.</p>
+          <div class="exemplo">
+            <span class="exemplo__titulo">📦 Exemplo</span>
+            Você vende, em média, 10 camisetas por dia, mas tem dias de 6 e dias de 14. O fornecedor leva 5 dias. Querendo 95% de segurança, a calculadora sugere guardar cerca de <strong>8 camisetas</strong> a mais como reserva.
+          </div>
+          <div class="termo"><strong>Desvio padrão:</strong> um número que mostra o quanto suas vendas costumam variar em relação à média. Quanto maior, mais suas vendas mudam de um dia para o outro.</div>
+          <p class="mb-0"><a class="botao botao--pequeno" href="calculadora.html?demanda=10&amp;min=6&amp;max=14&amp;prazo=5&amp;nivel=95">Ver esta conta na calculadora</a></p>
+        </div>
+      </details>
+
+      <details class="duvida" id="ponto-pedido">
+        <summary><span class="duvida__numero" aria-hidden="true">03</span><h2>O que é ponto de pedido?</h2><span class="duvida__seta" aria-hidden="true">+</span></summary>
+        <div class="duvida__corpo">
+          <p><strong>Ponto de pedido</strong> é a quantidade no estoque que indica a hora de fazer um novo pedido ao fornecedor. Chegou nesse número? É hora de pedir.</p>
+          <p>A conta é: o que você vende durante a espera pela entrega, mais o estoque de segurança.</p>
+          <div class="exemplo">
+            <span class="exemplo__titulo">📦 Exemplo</span>
+            Você vende 10 camisetas por dia, o fornecedor leva 5 dias e sua reserva é de 8 camisetas. Ponto de pedido: <span class="conta">10 × 5 + 8 = 58</span>. Quando sobrarem 58 camisetas, faça o pedido.
+          </div>
+          <p class="mb-0"><a class="botao botao--pequeno" href="calculadora.html?demanda=10&amp;min=6&amp;max=14&amp;prazo=5&amp;nivel=95">Calcular meu ponto de pedido</a></p>
+        </div>
+      </details>
+
+      <details class="duvida" id="lead-time">
+        <summary><span class="duvida__numero" aria-hidden="true">04</span><h2>O que é lead time (tempo de reposição) e como ele afeta o estoque?</h2><span class="duvida__seta" aria-hidden="true">+</span></summary>
+        <div class="duvida__corpo">
+          <p><strong>Lead time</strong>, ou tempo de reposição, é o tempo que passa entre você fazer o pedido ao fornecedor e o produto chegar na sua mão, pronto para vender.</p>
+          <p>Quanto maior esse tempo, mais produto você precisa ter guardado para não faltar durante a espera.</p>
+          <div class="exemplo">
+            <span class="exemplo__titulo">📦 Exemplo</span>
+            Vendendo 10 unidades por dia: com fornecedor de 3 dias, você precisa de <span class="conta">10 × 3 = 30</span> unidades para a espera. Com fornecedor de 10 dias, precisa de <span class="conta">10 × 10 = 100</span>. Mesmo produto, mesmo volume de vendas, e mais de três vezes o estoque.
+          </div>
+          <p>Lembre de contar tudo: o dia do pedido, o pagamento, a separação no fornecedor e o transporte.</p>
+          <p class="mb-0"><a class="botao botao--pequeno" href="calculadora.html?demanda=10&amp;min=6&amp;max=14&amp;prazo=10&amp;nivel=95">Testar com prazo de 10 dias</a></p>
+        </div>
+      </details>
+
+      <details class="duvida" id="quando-repor">
+        <summary><span class="duvida__numero" aria-hidden="true">05</span><h2>Como saber quando repor um produto?</h2><span class="duvida__seta" aria-hidden="true">+</span></summary>
+        <div class="duvida__corpo">
+          <p>Defina um <a href="#ponto-pedido">ponto de pedido</a> para cada produto que vende bem e acompanhe a quantidade guardada. Quando o estoque chegar a esse número, faça o pedido.</p>
+          <ol>
+            <li>Anote quanto vende por dia durante algumas semanas (um caderno ou planilha já resolve).</li>
+            <li>Pergunte ao fornecedor o prazo real de entrega.</li>
+            <li>Use a <a href="calculadora.html">calculadora</a> para achar o ponto de pedido.</li>
+            <li>Marque esse número na prateleira, na caixa ou na planilha.</li>
+          </ol>
+          <div class="exemplo">
+            <span class="exemplo__titulo">📦 Exemplo</span>
+            Seu ponto de pedido de sabonetes é 40. Na segunda você tem 55, na quarta tem 41, na quinta tem 38. Na quinta, faça o pedido: você passou do limite.
+          </div>
+          <p class="mb-0"><strong>Dica:</strong> revise os números a cada poucos meses ou quando algo mudar, como datas comemorativas, troca de fornecedor ou aumento das vendas.</p>
+        </div>
+      </details>
+
+      <div class="aviso mt-2">
+        <span class="aviso__icone" aria-hidden="true">💡</span>
+        <p>Ficou com outra dúvida? Em breve teremos um <a href="comunidade.html">espaço de comunidade</a> para trocar perguntas e dicas. Até lá, fale com a gente pela página <a href="sobre.html#contato">Sobre</a>.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="envoltorio">
+      <div class="rodape__grade">
+        <div>
+          <a class="marca" href="index.html" aria-label="Elas Connect, página inicial"><svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="11" fill="#c8102e"/><path d="M9 15.5 20 10l11 5.5v11L20 32 9 26.5z" fill="#ffb27a" stroke="#2b0f1c" stroke-width="2" stroke-linejoin="round"/><path d="M9 15.5 20 21l11-5.5M20 21v11" fill="none" stroke="#2b0f1c" stroke-width="2" stroke-linejoin="round"/><circle cx="31" cy="9" r="4" fill="#c6f432" stroke="#2b0f1c" stroke-width="1.5"/></svg><span>Elas<strong>Connect</strong></span></a>
+          <p>Informação prática e ferramentas simples para mulheres MEI que trabalham com logística.</p>
+          <p class="mb-0">Projeto de TCC do Curso Técnico em Logística.</p>
+        </div>
+        <div>
+          <h2>Ferramentas</h2>
+          <ul>
+            <li><a href="calculadora.html">Calculadora de estoque</a></li>
+            <li><a href="simulador.html">Simulador MEI PREDICT</a></li>
+            <li><a href="duvidas.html">Dúvidas frequentes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Projeto</h2>
+          <ul>
+            <li><a href="sobre.html">Quem somos</a></li>
+            <li><a href="sobre.html#contato">Contato</a></li>
+            <li><a href="comunidade.html">Comunidade (em breve)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="rodape__base">
+        <p class="rodape__privacidade mb-0"><span aria-hidden="true">🔒</span><span>Este site não pede cadastro e não guarda seus dados. As contas da calculadora e do simulador são feitas no seu próprio aparelho.</span></p>
+        <p class="mb-0 mt-2">© <span data-ano>2026</span> Elas Connect · Os resultados das ferramentas são estimativas e não substituem a orientação de um profissional.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/site.js"></script>
+</body>
+</html>

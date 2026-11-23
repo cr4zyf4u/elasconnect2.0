@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="pt-BR" class="sem-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora de estoque · Elas Connect</title>
+  <meta name="description" content="Calcule o estoque de segurança e o ponto de pedido do seu produto e descubra a hora certa de fazer um novo pedido ao fornecedor.">
+  <meta name="theme-color" content="#c8102e">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <header class="topo">
+    <div class="topo__inner">
+      <a class="marca" href="index.html" aria-label="Elas Connect, página inicial">
+        <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="11" fill="#c8102e"/><path d="M9 15.5 20 10l11 5.5v11L20 32 9 26.5z" fill="#ffb27a" stroke="#2b0f1c" stroke-width="2" stroke-linejoin="round"/><path d="M9 15.5 20 21l11-5.5M20 21v11" fill="none" stroke="#2b0f1c" stroke-width="2" stroke-linejoin="round"/><circle cx="31" cy="9" r="4" fill="#c6f432" stroke="#2b0f1c" stroke-width="1.5"/></svg>
+        <span>Elas<strong>Connect</strong></span>
+      </a>
+      <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="menu-botao__icone" aria-hidden="true"></span> Menu
+      </button>
+      <nav id="menu-principal" class="menu" aria-label="Menu principal">
+        <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="duvidas.html">Dúvidas</a></li>
+        <li><a href="calculadora.html" aria-current="page">Calculadora</a></li>
+        <li><a href="simulador.html" class="menu__destaque">MEI PREDICT</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="comunidade.html">Comunidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <header class="cabecalho-pagina">
+      <div class="envoltorio">
+        <span class="sobretitulo">Calculadora de estoque</span>
+        <h1>Quando fazer o <span class="marca-texto">próximo pedido</span>?</h1>
+        <p class="texto-grande">Preencha os quatro campos abaixo com os dados de um produto. A calculadora mostra quanto guardar de reserva e com quantas unidades no estoque você deve pedir de novo.</p>
+      </div>
+    </header>
+
+    <div class="envoltorio ferramenta">
+      <form id="form-calculadora" class="etiqueta formulario" novalidate aria-labelledby="titulo-form">
+        <div class="etiqueta__codigo"><span>Seus dados</span><span class="codigo-barras" aria-hidden="true"></span></div>
+        <h2 id="titulo-form" class="visualmente-oculto">Seus dados</h2>
+
+        <div class="campo">
+          <label for="demanda">1. Demanda média diária</label>
+          <p class="ajuda" id="ajuda-demanda">Quantas unidades você vende por dia, em média.</p>
+          <div class="campo__entrada">
+            <input type="text" inputmode="decimal" id="demanda" name="demanda" placeholder="Ex.: 10" autocomplete="off" aria-describedby="ajuda-demanda erro-demanda">
+            <span class="campo__sufixo">un./dia</span>
+          </div>
+          <p class="campo__erro" id="erro-demanda" aria-live="polite"></p>
+        </div>
+
+        <fieldset class="campo">
+          <legend>2. Variação da demanda</legend>
+          <p class="ajuda">Suas vendas mudam de um dia para o outro. Escolha como prefere informar isso.</p>
+          <div class="opcoes">
+            <label class="opcao"><input type="radio" name="modo" value="faixa" checked><span>Vendo entre X e Y por dia</span></label>
+            <label class="opcao"><input type="radio" name="modo" value="desvio"><span>Sei o desvio padrão</span></label>
+          </div>
+        </fieldset>
+
+        <div id="bloco-faixa" class="campo">
+          <div class="duas-colunas">
+            <div class="campo">
+              <label for="minimo">Em um dia fraco, vendo</label>
+              <div class="campo__entrada">
+                <input type="text" inputmode="decimal" id="minimo" placeholder="Ex.: 6" autocomplete="off" aria-describedby="ajuda-faixa erro-minimo">
+                <span class="campo__sufixo">un.</span>
+              </div>
+              <p class="campo__erro" id="erro-minimo" aria-live="polite"></p>
+            </div>
+            <div class="campo">
+              <label for="maximo">Em um dia forte, vendo</label>
+              <div class="campo__entrada">
+                <input type="text" inputmode="decimal" id="maximo" placeholder="Ex.: 14" autocomplete="off" aria-describedby="ajuda-faixa erro-maximo">
+                <span class="campo__sufixo">un.</span>
+              </div>
+              <p class="campo__erro" id="erro-maximo" aria-live="polite"></p>
+            </div>
+          </div>
+          <p class="ajuda" id="ajuda-faixa">Pense em dias comuns, sem contar datas muito fora do normal. A calculadora estima o desvio padrão dividindo a diferença entre os dois valores por 4.</p>
+        </div>
+
+        <div id="bloco-desvio" class="campo" hidden>
+          <label for="desvio">Desvio padrão da demanda diária</label>
+          <p class="ajuda" id="ajuda-desvio">Número que mostra o quanto as vendas variam em relação à média. Planilhas calculam com a função DESVPAD.</p>
+          <div class="campo__entrada">
+            <input type="text" inputmode="decimal" id="desvio" placeholder="Ex.: 2" autocomplete="off" aria-describedby="ajuda-desvio erro-desvio">
+            <span class="campo__sufixo">un.</span>
+          </div>
+          <p class="campo__erro" id="erro-desvio" aria-live="polite"></p>
+        </div>
+
+        <div class="campo">
+          <label for="prazo">3. Tempo de reposição</label>
+          <p class="ajuda" id="ajuda-prazo">Dias entre fazer o pedido ao fornecedor e receber o produto (o chamado <em>lead time</em>).</p>
+          <div class="campo__entrada">
+            <input type="text" inputmode="decimal" id="prazo" placeholder="Ex.: 5" autocomplete="off" aria-describedby="ajuda-prazo erro-prazo">
+            <span class="campo__sufixo">dias</span>
+          </div>
+          <p class="campo__erro" id="erro-prazo" aria-live="polite"></p>
+        </div>
+
+        <fieldset class="campo">
+          <legend>4. Nível de segurança desejado</legend>
+          <p class="ajuda">É a chance de não faltar produto durante a espera. Quanto maior, mais reserva você precisa guardar.</p>
+          <div class="opcoes">
+            <label class="opcao"><input type="radio" name="nivel" value="90"><span>90% <small>· econômico</small></span></label>
+            <label class="opcao"><input type="radio" name="nivel" value="95" checked><span>95% <small>· equilibrado</small></span></label>
+            <label class="opcao"><input type="radio" name="nivel" value="99"><span>99% <small>· máximo</small></span></label>
+          </div>
+        </fieldset>
+
+        <div class="grupo-botoes">
+          <button class="botao" type="submit">Calcular</button>
+          <button class="botao botao--claro" type="button" id="usar-exemplo">Usar um exemplo</button>
+        </div>
+      </form>
+
+      <section id="painel-resultado" class="etiqueta painel-resultado" tabindex="-1" aria-labelledby="titulo-resultado">
+        <div class="resultado-cabeca"><h2 id="titulo-resultado">📦 Seu resultado</h2></div>
+
+        <div aria-live="polite">
+          <div id="resultado-vazio">
+            <p class="mensagem-vazia">Preencha os campos ao lado para ver o resultado. Ele aparece aqui na hora, enquanto você digita.</p>
+            <p class="mensagem-vazia mb-0">Sem os seus números à mão? Toque em <strong>Usar um exemplo</strong>.</p>
+          </div>
+
+          <div id="resultado-cheio" hidden>
+            <div class="numeros">
+              <div class="numero fundo-rosa">
+                <span class="numero__rotulo">Estoque de segurança</span>
+                <span class="numero__valor" id="valor-seguranca">0</span>
+                <span class="numero__unidade" id="unid-seguranca">unidades</span>
+              </div>
+              <div class="numero fundo-laranja">
+                <span class="numero__rotulo">Ponto de pedido</span>
+                <span class="numero__valor" id="valor-pedido">0</span>
+                <span class="numero__unidade" id="unid-pedido">unidades</span>
+              </div>
+            </div>
+
+            <p class="frase-resultado" id="frase"></p>
+            <p id="frase-explica"></p>
+
+            <div class="barra-estoque" aria-hidden="true">
+              <div class="barra-estoque__trilho">
+                <div class="barra-estoque__parte barra-estoque__parte--demanda" id="barra-demanda"></div>
+                <div class="barra-estoque__parte barra-estoque__parte--seguranca" id="barra-seguranca"></div>
+              </div>
+              <div class="legenda"><span class="l-demanda">Vendas durante a espera</span><span class="l-seguranca">Reserva de segurança</span></div>
+            </div>
+
+            <details class="passo-a-passo">
+              <summary>Ver a conta passo a passo</summary>
+              <ol>
+                <li id="conta-desvio"></li>
+                <li id="conta-seguranca"></li>
+                <li id="conta-pedido"></li>
+              </ol>
+            </details>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="secao" aria-labelledby="titulo-como">
+      <div class="envoltorio grade grade--2">
+        <div>
+          <span class="sobretitulo">Como a conta é feita</span>
+          <h2 id="titulo-como">Duas fórmulas, sem segredo</h2>
+          <p><strong>Estoque de segurança</strong> = Z × desvio padrão da demanda × √ tempo de reposição</p>
+          <p><strong>Ponto de pedido</strong> = demanda média diária × tempo de reposição + estoque de segurança</p>
+          <p>O <strong>Z</strong> é um número fixo ligado ao nível de segurança escolhido. Quanto maior a segurança, maior o Z e maior a reserva. Os resultados são arredondados para cima, porque não dá para guardar meia unidade.</p>
+          <p>Quando você informa “vendo entre X e Y por dia”, a calculadora estima o desvio padrão como (Y − X) ÷ 4. É uma aproximação simples e funciona bem para quem não tem o histórico de vendas organizado.</p>
+        </div>
+        <div>
+          <div class="tabela-rolagem">
+            <table class="tabela">
+              <caption class="visualmente-oculto">Valor de Z para cada nível de segurança</caption>
+              <thead><tr><th scope="col">Nível de segurança</th><th scope="col">Valor de Z</th><th scope="col">Na prática</th></tr></thead>
+              <tbody>
+                <tr><td>90%</td><td>1,28</td><td>Pode faltar em 1 a cada 10 reposições</td></tr>
+                <tr><td>95%</td><td>1,65</td><td>Pode faltar em 1 a cada 20 reposições</td></tr>
+                <tr><td>99%</td><td>2,33</td><td>Pode faltar em 1 a cada 100 reposições</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="aviso mt-2" role="note">
+            <span class="aviso__icone" aria-hidden="true">⚠️</span>
+            <div>
+              <p><strong>Os cálculos são uma estimativa.</strong> O resultado depende dos dados que você informou e supõe que suas vendas e o prazo do fornecedor se comportam como de costume.</p>
+              <p>Em datas especiais, promoções ou mudanças no fornecedor, refaça a conta com os novos números.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="envoltorio">
+      <div class="rodape__grade">
+        <div>
+          <a class="marca" href="index.html" aria-label="Elas Connect, página inicial"><svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="11" fill="#c8102e"/><path d="M9 15.5 20 10l11 5.5v11L20 32 9 26.5z" fill="#ffb27a" stroke="#2b0f1c" stroke-width="2" stroke-linejoin="round"/><path d="M9 15.5 20 21l11-5.5M20 21v11" fill="none" stroke="#2b0f1c" stroke-width="2" stroke-linejoin="round"/><circle cx="31" cy="9" r="4" fill="#c6f432" stroke="#2b0f1c" stroke-width="1.5"/></svg><span>Elas<strong>Connect</strong></span></a>
+          <p>Informação prática e ferramentas simples para mulheres MEI que trabalham com logística.</p>
+          <p class="mb-0">Projeto de TCC do Curso Técnico em Logística.</p>
+        </div>
+        <div>
+          <h2>Ferramentas</h2>
+          <ul>
+            <li><a href="calculadora.html">Calculadora de estoque</a></li>
+            <li><a href="simulador.html">Simulador MEI PREDICT</a></li>
+            <li><a href="duvidas.html">Dúvidas frequentes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Projeto</h2>
+          <ul>
+            <li><a href="sobre.html">Quem somos</a></li>
+            <li><a href="sobre.html#contato">Contato</a></li>
+            <li><a href="comunidade.html">Comunidade (em breve)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="rodape__base">
+        <p class="rodape__privacidade mb-0"><span aria-hidden="true">🔒</span><span>Este site não pede cadastro e não guarda seus dados. As contas da calculadora e do simulador são feitas no seu próprio aparelho.</span></p>
+        <p class="mb-0 mt-2">© <span data-ano>2026</span> Elas Connect · Os resultados das ferramentas são estimativas e não substituem a orientação de um profissional.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/site.js"></script>
+  <script src="js/calculadora.js"></script>
+</body>
+</html>
